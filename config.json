@@ -1,0 +1,90 @@
+{
+  "bot_settings": {
+    "scan_interval_minutes": 25,
+    "delay_between_sources_seconds": { "min": 12, "max": 28 },
+    "max_retries_per_source": 2,
+    "backoff_factor_seconds": 15
+  },
+
+  "settings": {
+    "amazon_domain": "www.amazon.es",
+
+    "push_mode": "errors",
+    "top_percent": 40,
+    "page_size": 5,
+    "active_deal_ttl_hours": 3,
+    "welcome_on_start": true,
+
+    "dedup_hours": 36,
+    "renotify_extra_drop_percent": 10,
+    "price_error_percent": 60,
+    "min_history_samples": 3,
+    "history_days": 30,
+    "max_alerts_per_cycle": 15,
+
+    "request_timeout_seconds": 20,
+    "backoff_max_seconds": 120,
+    "delay_between_requests_seconds": [6, 14],
+    "circuit_breaker_failures": 2,
+    "cooldown_minutes": 45,
+
+    "seller_filter": true,
+    "seller_cache_hours": 24,
+    "max_seller_checks_per_cycle": 10
+  },
+
+  "categories": [
+    {
+      "id": "tech",
+      "label": "💻 TECNOLOGÍA",
+      "menu_label": "💻 Tecnología y Componentes",
+      "enabled": true,
+      "min_drop_percent": 30,
+      "price_error_percent": 60,
+      "min_price": 20,
+      "include_keywords": [],
+      "exclude_keywords": ["funda", "protector de pantalla", "cristal templado", "cable", "pegatina", "vinilo",
+                           "cartucho", "toner", "tinta"],
+      "sources": [
+        { "type": "search", "name": "Informática en oferta (vendido por Amazon)", "pages": 2,
+          "url": "https://www.amazon.es/s?i=computers&rh=p_n_deal_type%3A26902953031&emi=A1AT7YVPFBWXBL" }
+      ]
+    },
+
+    {
+      "id": "gaming",
+      "label": "🎮 CONSOLAS Y VIDEOJUEGOS",
+      "menu_label": "🎮 Consolas y Videojuegos",
+      "enabled": true,
+      "min_drop_percent": 30,
+      "price_error_percent": 60,
+      "min_price": 15,
+      "include_keywords": [],
+      "exclude_keywords": ["funda", "protector de pantalla", "cristal templado", "pegatina", "vinilo", "skin"],
+      "sources": [
+        { "type": "search", "name": "Videojuegos y consolas en oferta (vendido por Amazon)", "pages": 2,
+          "url": "https://www.amazon.es/s?i=videogames&rh=p_n_deal_type%3A26902953031&emi=A1AT7YVPFBWXBL" }
+      ]
+    },
+
+    {
+      "id": "mtg",
+      "label": "🃏 MAGIC THE GATHERING",
+      "menu_label": "🃏 Magic: The Gathering",
+      "enabled": true,
+      "min_drop_percent": 25,
+      "price_error_percent": 60,
+      "min_price": 5,
+      "include_keywords": ["magic the gathering", "mtg"],
+      "exclude_keywords": ["funda", "fundas", "sleeves", "protector", "protectores", "deck box", "tapete",
+                           "playmat", "carpeta", "archivador", "pokemon", "yu gi oh", "lorcana", "one piece",
+                           "digimon", "camiseta", "taza"],
+      "sources": [
+        { "type": "search", "name": "MTG en oferta (vendido por Amazon)", "pages": 2,
+          "url": "https://www.amazon.es/s?k=magic+the+gathering&rh=p_n_deal_type%3A26902953031&emi=A1AT7YVPFBWXBL" },
+        { "type": "search", "name": "MTG catálogo Amazon (detecta bajadas vs historial)", "pages": 1,
+          "url": "https://www.amazon.es/s?k=magic+the+gathering&i=toys&emi=A1AT7YVPFBWXBL" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Servidor web (health checks de Render)
+fastapi>=0.115
+uvicorn[standard]>=0.30
+
+# Bot de Telegram (menú interactivo)
+python-telegram-bot>=22.0
+
+# Scraping
+curl_cffi>=0.17
+beautifulsoup4>=4.12
+
+# Utilidades
+requests>=2.32
+python-dotenv>=1.0

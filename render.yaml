@@ -1,0 +1,26 @@
+# Blueprint de Render: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: amazon-bargain-bot
+    runtime: python            # "env: python" está obsoleto; Render usa "runtime"
+    plan: free                 # para 24/7 sin self-ping y con disco persistente: 0.5c-512mb
+    region: frankfurt          # la más cercana a Amazon.es
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      # Secretos: Render los pide en el Dashboard al crear el Blueprint (nunca en el repo)
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: CHAT_ID
+        sync: false
+      # Configuración no sensible
+      - key: PUSH_MODE
+        value: errors
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_TO_FILE
+        value: "false"
+      - key: SELF_PING
+        value: "true"

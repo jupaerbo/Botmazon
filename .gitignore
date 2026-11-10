@@ -1,0 +1,35 @@
+# --- Secretos ---------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# --- Entornos y caché de Python ---------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Datos de ejecución, logs y depuración ----------------------------------
+data/*
+!data/.gitkeep
+*.db
+*.sqlite3
+*.log
+*.log.*
+
+# --- Sistema operativo / editores --------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
